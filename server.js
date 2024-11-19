@@ -12,6 +12,11 @@ const app = express()
 
 app.use(cors())
 
+
+app.get("/test",(req,res)=>{
+    res.send('You have reached Project Management')
+})
+
 app.all(
     "/graphql",
     graphqlHTTP({
@@ -19,6 +24,8 @@ app.all(
         graphiql: process.env.ENV === 'development',
     })
 )
+
+
 
 connectDB()
 .then(()=>
